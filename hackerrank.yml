@@ -1,0 +1,17 @@
+version: 1.0
+configuration:
+  has_webserver: true
+  scoring:
+    command: rm -f report.json report.xml && flutter build web && flutter test --machine 2>&1 | tee report.json && flutter pub run junitreport:tojunit --input report.json --output report.xml
+    files:
+      - report.xml
+  readonly_paths:
+    - test/widget_test.dart
+  ide_config:
+    default_open_files:
+      - lib/main.dart
+      - test/widget_test.dart
+    project_menu:
+      run: flutter build web && flutter run --release --device-id web-server --web-hostname 0.0.0.0 --web-port 8000
+      install: flutter build web
+      test: flutter build web && flutter test
