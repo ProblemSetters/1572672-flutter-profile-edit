@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/profile-edit.dart';
+import 'package:hello_flutter/profile_edit.dart';
 
 void main() {
   runApp(const MyApp());
