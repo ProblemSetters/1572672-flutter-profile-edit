@@ -9,9 +9,9 @@ class ProfileEdit extends StatefulWidget {
 
 class _ProfileEditState extends State<ProfileEdit> {
   GlobalKey<FormState> _formkey = new GlobalKey<FormState>();
-  String _name = '';
-  String _email = '';
-  bool _isEditing = true;
+  String _name = 'John Hopkins';
+  String _email = 'john.hopkins@hackerrank.com';
+  bool _isEditing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +78,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                           Container(
                                             width: 300,
                                             child: TextFormField(
+                                              key: Key('name'),
                                               keyboardType: TextInputType.name,
                                               autofocus: false,
                                               textCapitalization:
@@ -136,6 +137,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                             width: 300,
                                             child: TextFormField(
                                               autofocus: false,
+                                              key: Key('email'),
                                               initialValue: _email,
                                               validator: (value) {
                                                 return FormValidator
@@ -235,6 +237,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                           ),
                                         ),
                                         OutlinedButton(
+                                          key: Key("EDIT"),
                                           style: OutlinedButton.styleFrom(
                                             padding: EdgeInsets.all(10),
                                             side:
@@ -257,6 +260,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                     ),
                                     SizedBox(height: 40),
                                     Text(
+                                      key: Key('name'),
                                       _name,
                                       style: TextStyle(
                                           color: Colors.black,
@@ -265,6 +269,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                     ),
                                     SizedBox(height: 10),
                                     Text(
+                                      key: Key('email'),
                                       _email,
                                       style: TextStyle(
                                         color: Colors.black,
@@ -299,11 +304,11 @@ class _ProfileEditState extends State<ProfileEdit> {
 class FormValidator {
   static String? validateName(String? name) {
     if (name?.isEmpty ?? true) return "Please enter a name!";
-    return null;
+    return '';
   }
 
   static String? validateEmail(String? email) {
-    if (email?.isEmpty ?? true) return 'Please enter a email!';
-    return null;
+    if (email?.isEmpty ?? true) return 'Please enter an email!';
+    return '';
   }
 }
