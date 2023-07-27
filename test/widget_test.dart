@@ -8,8 +8,8 @@ void main() {
 
     await tester.pumpWidget(MyApp());
 
-    final textFieldFinderEmail = find.byKey(Key('email'));
-    final textFieldFinderName = find.byKey(Key('name'));
+    final textFieldFinderEmail = find.byKey(Key('email-text'));
+    final textFieldFinderName = find.byKey(Key('name-text'));
 
     final emailText = tester.widget<Text>(textFieldFinderEmail);
     final nameText = tester.widget<Text>(textFieldFinderName);
@@ -27,8 +27,8 @@ void main() {
     await tester.tap(find.byType(OutlinedButton));
     await tester.pump();
 
-    final inputTextFieldFinderEmail = find.byKey(Key('email'));
-    final inputTextFieldFinderName = find.byKey(Key('name'));
+    final inputTextFieldFinderEmail = find.byKey(Key('email-input'));
+    final inputTextFieldFinderName = find.byKey(Key('name-input'));
 
     expect(tester.firstWidget<TextFormField>(inputTextFieldFinderEmail),
         isA<TextFormField>());
@@ -44,8 +44,8 @@ void main() {
     await tester.tap(find.byType(OutlinedButton));
     await tester.pump();
 
-    final inputTextFieldFinderEmail = find.byKey(Key('email'));
-    final inputTextFieldFinderName = find.byKey(Key('name'));
+    final inputTextFieldFinderEmail = find.byKey(Key('email-input'));
+    final inputTextFieldFinderName = find.byKey(Key('name-input'));
 
     expect(tester.firstWidget<TextFormField>(inputTextFieldFinderEmail),
         isNot(TextFormField));
@@ -61,14 +61,14 @@ void main() {
     await tester.tap(find.byType(OutlinedButton));
     await tester.pump();
 
-    final inputTextFieldFinderName = find.byKey(Key('name'));
+    final inputTextFieldFinderName = find.byKey(Key('name-input'));
 
     await tester.enterText(inputTextFieldFinderName, 'New Name');
 
     await tester.tap(find.byType(ElevatedButton));
     await tester.pumpAndSettle();
 
-    final textFieldFinderName = find.byKey(Key('name'));
+    final textFieldFinderName = find.byKey(Key('name-text'));
     final nameText = tester.widget<Text>(textFieldFinderName);
     expect(nameText.data, 'New Name');
   });
@@ -81,7 +81,7 @@ void main() {
     await tester.tap(find.byType(OutlinedButton));
     await tester.pump();
 
-    final inputTextFieldFinderEmail = find.byKey(Key('email'));
+    final inputTextFieldFinderEmail = find.byKey(Key('email-input'));
 
     await tester.enterText(
         inputTextFieldFinderEmail, 'newemail@hackerrank.com');
@@ -89,7 +89,7 @@ void main() {
     await tester.tap(find.byType(ElevatedButton));
     await tester.pumpAndSettle();
 
-    final textFieldFinderEmail = find.byKey(Key('email'));
+    final textFieldFinderEmail = find.byKey(Key('email-text'));
     final emailText = tester.widget<Text>(textFieldFinderEmail);
     expect(emailText.data, 'newemail@hackerrank.com');
   });
