@@ -38,9 +38,3 @@ class _ProfileEditState extends State<ProfileEdit> {
     );
   }
 }
-
-class FormValidator {
-  static validateUsername(String username) {}
-
-  static validatePassword(String password) {}
-}
