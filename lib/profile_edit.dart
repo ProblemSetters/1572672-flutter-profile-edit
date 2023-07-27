@@ -78,16 +78,12 @@ class _ProfileEditState extends State<ProfileEdit> {
                                           Container(
                                             width: 300,
                                             child: TextFormField(
-                                              key: Key('name'),
+                                              key: Key('name-input'),
                                               keyboardType: TextInputType.name,
                                               autofocus: false,
                                               textCapitalization:
                                                   TextCapitalization.words,
                                               initialValue: _name,
-                                              validator: (value) {
-                                                return FormValidator
-                                                    .validateName(value);
-                                              },
                                               onSaved: (value) {
                                                 _name = value?.trim() ?? '';
                                               },
@@ -137,12 +133,8 @@ class _ProfileEditState extends State<ProfileEdit> {
                                             width: 300,
                                             child: TextFormField(
                                               autofocus: false,
-                                              key: Key('email'),
+                                              key: Key('email-input'),
                                               initialValue: _email,
-                                              validator: (value) {
-                                                return FormValidator
-                                                    .validateEmail(value);
-                                              },
                                               onSaved: (value) {
                                                 _email = value?.trim() ?? '';
                                               },
@@ -237,7 +229,6 @@ class _ProfileEditState extends State<ProfileEdit> {
                                           ),
                                         ),
                                         OutlinedButton(
-                                          key: Key("EDIT"),
                                           style: OutlinedButton.styleFrom(
                                             padding: EdgeInsets.all(10),
                                             side:
@@ -260,7 +251,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                     ),
                                     SizedBox(height: 40),
                                     Text(
-                                      key: Key('name'),
+                                      key: Key('name-text'),
                                       _name,
                                       style: TextStyle(
                                           color: Colors.black,
@@ -269,7 +260,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                     ),
                                     SizedBox(height: 10),
                                     Text(
-                                      key: Key('email'),
+                                      key: Key('email-text'),
                                       _email,
                                       style: TextStyle(
                                         color: Colors.black,
@@ -298,17 +289,5 @@ class _ProfileEditState extends State<ProfileEdit> {
         const SnackBar(content: Text('Valid Details')),
       );
     }
-  }
-}
-
-class FormValidator {
-  static String? validateName(String? name) {
-    if (name?.isEmpty ?? true) return "Please enter a name!";
-    return '';
-  }
-
-  static String? validateEmail(String? email) {
-    if (email?.isEmpty ?? true) return 'Please enter an email!';
-    return '';
   }
 }

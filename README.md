@@ -32,16 +32,16 @@ Initially, the file is filled with boilerplate code.
 
 ## Testing Requirements
 
-- The `Name` input widget must use `TextFormField` class.
-- The `Email` input widget must use `TextFormField` class.
-- The `Name` text widget must use `Text` class.
-- The `Email` text widget must use `Text` class.
-- The `SAVE` button widget must use `ElevatedButton` class.
-- The `EDIT` button must use `OutlinedButton` class.
-- The `Email` input must have key=`email`.
-- The `Email` text must have key=`email`.
-- The `Name` input must have key=`name`.
-- The `Name` text must have key=`name`.
+- The `Name` input widget must use `TextFormField` Widget.
+- The `Email` input widget must use `TextFormField` Widget.
+- The `Name` text widget must use `Text` Widget.
+- The `Email` text widget must use `Text` Widget.
+- The `SAVE` button widget must use `ElevatedButton` Widget.
+- The `EDIT` button must use `OutlinedButton` Widget.
+- The `Email` input must have key=`email-input`.
+- The `Email` text must have key=`email-text`.
+- The `Name` input must have key=`name-input`.
+- The `Name` text must have key=`name-text`.
 
 Please note that the widgets use the above classes for test cases for rendering purposes. It is advised not to change them.
 
